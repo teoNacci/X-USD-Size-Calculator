@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Styles.css">
+    <title>X/USD Size Calculator</title>
+</head>
+
+<body>
+    <div class="blur-body"></div>
+    <div class="calculator-body">
+        <div class="tittle" data-info2>
+            <p class="text">X / USD Size Calculator</p>
+            <p class="shadow">X / USD Size Calculator</p>
+            <button class="info-button2" data-dummy5>i</button>   
+            <div class="container">
+                <p>
+                    A quick explanation of how this Calculator works. In the main window you will find the three main Inputs and the four main Buttons.
+                    Each Input can be filled in by clicking it and typing the desired value. By clicking in the field of an Input you will open an secondary window, below the main one, that
+                    contains a second set of inputs related to the main input that has been clicked on. You can use those inputs in order to get the value of the main one.
+                    Inside each secondary window you will find two other buttons: the "Submit" button processes the values ​​of the two secondary inputs and sends the result to the 
+                    main one; the "Reset" button removes any value from the two secondary Inputs. In the main window: the "Calculate" button processes the values ​​of the three main 
+                    inputs and displays the results in the set of two displays disposed at the bottom; the "Reset" button removes any value ​​from the three main Inputs and the set 
+                    of two Displays; the "Restore" button recalls the results of the last calculation performed; the "All Clear" button removes any value ​​from three main Inputs, 
+                    the set of two Displays and all the sets of secondary Inputs. Both displays are also used to visualize errors. Error conditions: The "Calculate" or "Submit" buttons
+                    are being clicked with one or multiple Inputs not filled in or with a negative value; superfluous inputs are compiled.
+                </p>
+            </div>   
+        </div>
+        
+        <div class="calculator-input1" data-input1> 
+            <label class="label">Risk per Trade:</label>  
+            <label class="shadow">Risk per Trade:</label>  
+            <input type="number" maxlength="13" id="riskinput" placeholder="Insert a USD amount" data-dummy1>
+
+            <div class="container">
+                <div class="accountsize-input">
+                    <label class="label">Account Size:</label>  
+                    <label class="shadow">Account Size:</label>  
+                    <input type="number" maxlength="13" id="accountsize" placeholder="Insert your Account size">
+                </div> 
+
+                <div class="riskpercentage-input">
+                    <label class="label">Risk Percentage:</label>   
+                    <label class="shadow">Risk Percentage:</label>
+                    <input type="number" maxlength="13" id="riskpercentage" placeholder="Insert a % value, ex: 3">
+                </div>
+
+                <div class="accountsize-input-button1"> 
+                    <button onclick="Submit()">Submit</button>
+                </div>
+
+                <div class="accountsize-input-button2"> 
+                    <button onclick="Reset2()">Reset</button>
+                </div>
+            </div>   
+        </div>
+
+        <div class="calculator-input2" data-input2> 
+            <label class="label">Variation in Price (StopLoss):</label>  
+            <label class="shadow">Variation in Price (StopLoss):</label>
+            <input type="number" maxlength="13" id="pricevarinput" placeholder="Insert your StopLoss's price-range " data-dummy2>
+            
+            <div class="container">
+                <div class="npips-input">
+                    <label class="label">Number of Pips:</label>  
+                    <label class="shadow">Number of Pips:</label>  
+                    <input type="number" maxlength="13" id="npips" placeholder="Insert your StopLoss's size in Pips">
+                </div> 
+
+                <div class="pip-value-input">
+                    <label class="label">Dimension of One Pip:</label>  
+                    <label class="shadow">Dimension of One Pip:</label>  
+                    <input type="number" maxlength="13" id="pipdim" placeholder="Insert the size of a Pip, ex: 0.01">
+                </div>
+
+                <div class="entryprice-input">
+                    <label class="label">Entry Price:</label>  
+                    <label class="shadow">Entry Price:</label>  
+                    <input type="number" maxlength="13" id="entryprice"  placeholder="Insert the Entry-Price of your Trade">
+                </div> 
+
+                <div class="exitprice-input">
+                    <label class="label">StopLoss Price:</label>  
+                    <label class="shadow">StopLoss Price:</label>     
+                    <input type="number" maxlength="13" id="exitprice" placeholder="Insert the price of your StopLoss">
+                </div>
+
+                <p class="p">Or...</p>
+                <p class="pshadow">Or...</p>
+
+                <div class="pricevar-input-button1"> 
+                    <button onclick="Submit2()">Submit</button>
+                </div>
+
+                <div class="pricevar-input-button2"> 
+                    <button onclick="Reset3()">Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="calculator-input3" data-input3> 
+            <label class="label">Size of one Lot:</label>
+            <label class="shadow">Size of one Lot:</label>
+            <input type="number" maxlength="13" id="lotsizeinput" placeholder="Insert the size of an entire Lot" data-dummy3>
+
+            <div class="container">
+                <h3>_Experimental!_</h3>
+                <h4>requires values from: "Risk per Trade" and "Variation in Price"!</h4>
+                <h5>_Experimental!_</h5>
+                <h6>requires values from: "Risk per Trade" and "Variation in Price"!</h6>
+                <div class="info-size" data-info>
+                    <button class="info-button" data-dummy4>i</button>
+                    <p class="text">
+                        Some trading platforms let the user know the nominal value of One
+                        standard Contract (Lot), given the current Price of the Asset or the Opening
+                        Price of the operation. By knowing this data, in combination with other data of 
+                        the operation, it is possible to derive the number of Units that a standard
+                        Contract has (the actual Size) without knowing it. !!Based on what Asset you
+                        trade, this function may return results with a certain level of imprecision.
+                        Always check the StopLoss value before exposing to the Markets!!.
+                    </p>
+                </div>
+
+                <div class="entryPrice-input">
+                    <label class="label">Entry Price:</label>
+                    <label class="shadow">Entry Price:</label>
+                    <input type="number" maxlength="13" id="entryPrice" placeholder="Insert the Entry-Price of your Trade">
+                </div> 
+
+                <div class="lotvalue-input">
+                    <label class="label">Value in $ of one Lot:</label>
+                    <label class="shadow">Value in $ of one Lot:</label> 
+                    <input type="number" maxlength="13" id="lotvalue" placeholder="Insert the value of a Lot in USD">
+
+                </div>
+
+                <div class="lotsize-input-button1"> 
+                    <button onclick="Submit3()">Submit</button>
+                </div>
+
+                <div class="lotsize-input-button2"> 
+                    <button onclick="Reset4()">Reset</button>
+                </div>
+            </div>   
+        </div>
+        
+        <div class="display"> 
+            <input id="display" readonly>
+            <label class="label">Quantity calculated in Lots:</label>
+            <label class="shadow">Quantity calculated in Lots:</label>
+        </div>
+
+        <div class="display2"> 
+            <input id="display2" readonly>
+            <label class="label">Quantity calculated in Units:</label>
+            <label class="shadow">Quantity calculated in Units:</label>
+        </div>
+
+        <div class="button1"> 
+            <button onclick="Calculate()">Calculate</button>
+        </div>
+
+        <div class="button2"> 
+            <button onclick="Reset()">Reset</button>
+        </div>
+        
+        <div class="button3"> 
+            <button onclick="Restore()">Restore</button>
+        </div>
+
+        <div class="button4"> 
+            <button onclick="Allclear()">All Clear</button>
+        </div>
+        
+        <h1>_This version of the Calculator works ONLY with assets with USD as denominator_</h1> 
+        <h2>_M.V. 2024 v1.0_</h2>
+    </div>
+    <script src="Script.js" defer></script>
+</body>
+</html> 

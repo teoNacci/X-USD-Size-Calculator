@@ -1,0 +1,1463 @@
+@keyframes slidefromleft {
+    0% {
+        transform: translate(-23%, 18%) rotateX(5deg) rotateY(0deg) rotateZ(3deg) scaleY(0) scalex(0);
+    }
+    30% {
+        transform: translate(-23%, 18%) rotateX(5deg) rotateY(0deg) rotateZ(3deg) scaleY(0.3) scalex(0.3); 
+        }
+    100% {
+        transform: translate(0%, -30%) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleY(1) scalex(1);
+    }
+}
+
+@keyframes blurpulse {
+    from {
+        backdrop-filter: blur(80px);
+    }
+    to {
+        backdrop-filter: blur(0px);
+    }
+}
+
+@keyframes constblur {
+    from {
+        backdrop-filter: blur(0px);
+        border-radius: 0px;
+    }
+    to {
+        backdrop-filter: blur(10px);
+        border-radius: 40px;
+    }
+}
+
+@keyframes buttonFlash {
+    0% {
+       color: rgb(0, 0, 0);
+    }
+    0% {
+        color: rgb(212, 209, 253, 0.5);
+    }
+    0% {
+        color: rgb(0, 0, 0);
+    }
+    0% {
+        color: rgb(212, 209, 253, 0.5);
+    }
+}
+
+
+
+
+
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('1.jpg') no-repeat;
+    background-size: 120rem;
+    background-position: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+.calculator-body{
+    background: transparent;
+    animation: slidefromleft 2500ms cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
+    width: 700px;
+    height: 450px;
+    position: relative;
+    transform: translate(0%, -30%);
+    opacity: 1;
+    overflow: visible;
+}
+
+.blur-body{
+    position: absolute;
+    width: 700px;
+    height: 450px;
+    background: transparent;
+    animation: constblur 1500ms cubic-bezier(0.39, 0.575, 0.565, 1) 2600ms 1 forwards ;
+    transform: translate(0%, -30%);
+}
+
+
+
+
+
+
+
+
+
+
+.calculator-body .tittle {
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    top: 10px;
+}
+
+.calculator-body .tittle .text{
+    position: absolute;
+    margin: 6px;
+    left: 241px;
+    font-size: 22px;
+    color: rgb(212, 209, 253);
+    pointer-events: none;
+    z-index: 500;
+}
+
+.calculator-body .tittle .shadow{
+    position: absolute;
+    margin: 6px;
+    left: 242px;
+    top: 1px;
+    font-size: 22px;
+    color: rgb(255, 115, 0);
+    pointer-events: none;
+    z-index: 499;
+}
+
+.calculator-body .info-button2{
+    background: transparent;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 20px;
+    left: 79%;
+    border-radius: 5px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%,-50%);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder;
+    font-style: italic;
+    font-size: 14px;
+    text-decoration: underline;
+    animation: buttonFlash 3000ms cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+}
+
+.calculator-body .info-button2:hover{
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.325);
+    cursor: pointer;
+}
+
+.calculator-body .info-button2:active{
+    background: rgba(0, 0, 0, 0.275);
+    font-size: 12px;
+    color: rgb(212, 209, 253);
+    border: 1px solid rgb(212, 209, 253, 0.3);
+}
+
+.calculator-body .tittle .container{
+    position: relative;
+    height: 310px;
+    width: 700px;
+    background: transparent;
+    top: 452px;
+    right: 0px;
+    border-radius: 40px;
+    backdrop-filter: blur(100px);
+    transform: translate(0px, -150px) scaleY(0);
+    opacity: 0;
+    transition: transform 900ms, opacity 900ms;
+    pointer-events: none;
+}
+
+.calculator-body .tittle.active .container{
+    position: relative;
+    opacity: 1;
+    transform: translate(0px, 0px) scaleY(1);
+    pointer-events: all;
+}
+
+.calculator-body .tittle .container p{
+    margin-left: 45px;
+    margin-right: 45px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 700;    
+    color: rgb(0, 0, 0);
+    text-decoration: solid;
+    position: absolute;
+    pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.calculator-input1{
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 17.77%;
+    left: 50%;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    border: 1px solid color white;
+    background: transparent;
+    overflow: visible;
+}
+
+.calculator-input1 input{
+    width: 200px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.15);    
+    border: none;
+    outline: none;
+    border: 2px solid;
+    border-color: rgb(212, 209, 253, 0.7);
+    color: rgb(212, 209, 253);
+    font-size: 16px;
+    text-align: center;
+    transition: 300ms;
+}
+
+.calculator-input1 input::placeholder{
+    font-size: 10px;
+    font-weight: 900;
+    font-style: oblique;
+    color: rgb(0, 0, 0);
+    opacity: 0.6;
+    transition: 300ms;
+}
+
+.calculator-input1 input:hover::placeholder{
+    opacity: 0.8;
+    font-size: 11px;
+}
+
+.calculator-input1.active ::placeholder{
+    opacity: 0.8;
+    font-size: 11px;
+}
+
+.calculator-input1 input:hover{
+    width: 225px;
+    border-radius: 30px;
+    background: rgb(255, 176, 139, 0.2);    
+    transition: 300ms;
+}
+
+.calculator-input1.active input[id="riskinput"], input[id="accountsize"], input[id="riskpercentage"]{
+    width: 225px;
+    border-radius: 30px;
+    background: rgb(255, 176, 139, 0.35);
+}
+
+.calculator-input1 input:active{
+    background: rgba(255, 255, 255, 0.175);
+}
+
+.calculator-input1 .label{
+    color: rgb(212, 209, 253);
+    font-size: 20px;
+    position: absolute;
+    top: 8px;
+    right: 380px;
+    z-index: 500;
+}
+
+.calculator-input1 .shadow {
+    color: rgb(51, 56, 78);
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    right: 379px;
+    z-index: 499;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.calculator-input2{
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top: 28.88%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    border: 1px solid color white;
+    background: transparent;
+    overflow: visible;
+}
+
+.calculator-input2 input{
+    width: 200px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(255, 255, 255, 0.15);    
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    border: 2px solid;
+    border-color: rgb(212, 209, 253, 0.7);
+    color: rgb(212, 209, 253);
+    font-size: 16px;
+    text-align: center;
+    transition: 300ms;
+}
+
+.calculator-input2 input::placeholder{
+    font-size: 10px;
+    font-weight: 900;
+    font-style: oblique;
+    color: black;
+    opacity: 0.6;
+    transition: 300ms;
+}
+
+.calculator-input2 input:hover::placeholder{
+    opacity: 0.8;
+    font-size: 11px;
+}
+
+.calculator-input2.active ::placeholder{
+    opacity: 0.8;
+    font-size: 11px;
+}
+
+.calculator-input2 input:hover{
+    width: 225px;
+    border-radius: 30px;
+    background: rgb(255, 176, 139, 0.2);
+}
+
+.calculator-input2 input:active{
+    background: rgba(255, 255, 255, 0.175);
+}
+
+.calculator-input2.active input[id="pricevarinput"], input[id="npips"], input[id="pipdim"], input[id="entryprice"], input[id="exitprice"]{
+    width: 225px;
+    border-radius: 30px;
+    background: rgb(255, 176, 139, 0.35);
+
+}
+
+.calculator-input2 .label{
+    color: rgb(212, 209, 253);
+    font-size: 20px;
+    position: absolute;
+    top: 8px;
+    right: 380px;
+    z-index: 500;
+}
+
+.calculator-input2 .shadow {
+    color: rgb(51, 56, 78);
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    right: 379px;
+    z-index: 499;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.calculator-input3{
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    border: 1px solid color white;
+    background: transparent;
+    overflow: visible;
+}
+
+.calculator-input3 input{
+    width: 200px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.15);    
+    border: none;
+    outline: none;
+    border: 2px solid;
+    border-color: rgb(212, 209, 253, 0.7);
+    color: rgb(212, 209, 253);
+    font-size: 16px;
+    text-align: center;
+    transition: 300ms;
+}
+
+.calculator-input3 input::placeholder{
+    font-size: 10px;
+    font-weight: 900;
+    font-style: oblique;
+    color: black;
+    opacity: 0.6;
+    transition: 300ms;
+}
+
+.calculator-input3 input:hover::placeholder{
+    opacity: 0.8;
+    font-size: 11px;
+}
+
+.calculator-input3.active ::placeholder{
+    opacity: 0.8;
+    font-size: 11px;
+}
+
+.calculator-input3 input:hover{
+    width: 225px;
+    border-radius: 30px;
+    background: rgb(255, 176, 139, 0.2);
+}
+
+.calculator-input3 input:active{
+    background: rgba(255, 255, 255, 0.175);
+}
+
+.calculator-input3.active input[id="lotsizeinput"], input[id="entryPrice"], input[id="lotvalue"]{
+    width: 225px;
+    border-radius: 30px;
+    background: rgb(255, 176, 139, 0.35);
+}
+
+.calculator-input3 .label{
+    color: rgb(212, 209, 253);
+    font-size: 20px;
+    position: absolute;
+    top: 8px;
+    right: 380px;
+    z-index: 500;
+}
+
+.calculator-input3 .shadow {
+    color: rgb(51, 56, 78);
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    right: 379px;
+    z-index: 499;
+}
+
+
+
+
+
+
+
+
+
+
+
+.display{
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    border: 1px solid color white
+}
+
+.display input{
+    width: 200px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    background: transparent ;
+    outline: none;
+    border: 2px solid;
+    border-color: rgb(212, 209, 253, 0.7);
+    color: rgb(212, 209, 253);
+    font-size: 15px;
+    text-align: center;
+    transition: 300ms;
+}
+
+.display input:hover{
+    width: 225px;
+    border-radius: 30px;
+    background: rgba(0, 110, 255, 0.1)
+}
+
+.display input:active{
+    background: rgba(0, 110, 255, 0.2)
+}
+
+.display .label {
+    position: absolute;
+    font-weight: bolder;
+    font-style: italic;
+    color: rgb(212, 209, 253);
+    font-size: 20px;
+    top: 8px;
+    right: 380px;
+    z-index: 500;
+}
+
+.display .shadow {
+    position: absolute;
+    font-weight: bolder;
+    font-style: italic;
+    color: rgb(51, 56, 78);
+    font-size: 20px;
+    top: 10px;
+    right: 379px;
+    z-index: 499;
+}
+
+
+
+
+
+
+
+
+
+
+.display2{
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top: 68.89%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    border: 1px solid color white
+}
+
+.display2 input{
+    width: 200px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    background: transparent ;
+    border: none;
+    outline: none;
+    border: 2px solid;
+    border-color: rgb(212, 209, 253, 0.7);
+    color: rgb(212, 209, 253);
+    font-size: 15px;
+    text-align: center;
+    transition: 300ms;
+}
+
+.display2 input:hover{
+    width: 225px;
+    border-radius: 30px;
+    background: rgba(0, 110, 255, 0.1)}
+
+.display2 input:active{
+    background: rgba(0, 110, 255, 0.2)}
+
+.display2 .label {
+    position: absolute;
+    font-weight: bolder;
+    font-style: italic;
+    color: rgb(212, 209, 253);
+    font-size: 20px;
+    top: 8px;
+    right: 380px;
+    z-index: 500;
+}
+
+.display2 .shadow {
+    position: absolute;
+    font-weight: bolder;
+    font-style: italic;
+    color: rgb(51, 56, 78);
+    font-size: 20px;
+    top: 10px;
+    right: 379px;
+    z-index: 499;
+}
+
+
+
+
+
+
+
+
+
+
+
+.button1 button{
+    background-color: rgb(255, 255, 255, 0.15);
+    position: absolute;
+    width: 76px;
+    height: 25px;
+    top: 50%;
+    left: 58%;
+    transform: translate(-50%,-50%);
+    border-radius:10px;
+    border: 2px solid rgb(212, 209, 253, 0.7);
+    font-weight: 600;
+    font-size: 12px;
+    transition: 50ms;
+}
+
+.button1 button:hover{
+    width: 80px;
+    border-radius: 12.5px;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.button1 button:active{
+    width: 78px;
+    height: 23px;
+    background: rgba(73, 73, 73, 0.5);
+    backdrop-filter: blur(0px);
+    color: rgb(212, 209, 253, 1);
+    font-size: 12px;
+}
+
+.button2 button{
+    background-color: rgb(255, 255, 255, 0.15);
+    position: absolute;
+    width: 76px;
+    height: 25px;
+    top: 50%;
+    left: 72%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;    
+    border: 2px solid rgb(212, 209, 253, 0.7);
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.button2 button:hover{
+    width: 80px;
+    border-radius: 12.5px;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.button2 button:active{
+    width: 78px;
+    height: 23px;
+    background: rgba(73, 73, 73, 0.5);
+    font-size: 13px;
+    color: rgb(212, 209, 253, 1);
+    font-size: 12px;
+}
+
+.button3 button{
+    background-color: rgb(255, 255, 255, 0.15);
+    position: absolute;
+    width: 76px;
+    height: 25px;
+    top: 58%;
+    left: 58%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;    
+    border: 2px solid rgb(212, 209, 253, 0.7);
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.button3 button:hover{
+    width: 80px;
+    border-radius: 12.5px;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.button3 button:active{
+    width: 78px;
+    height: 23px;
+    background: rgba(73, 73, 73, 0.5);
+    backdrop-filter: blur(0px);
+    color: rgb(212, 209, 253, 1);
+    font-size: 12px;
+}
+
+.button4 button{
+    background-color: rgb(255, 255, 255, 0.15);
+    position: absolute;
+    width: 76px;
+    height: 25px;
+    top: 58%;
+    left: 72%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    border: 2px solid rgb(212, 209, 253, 0.7);
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.button4 button:hover{
+    width: 80px;
+    border-radius: 12.5px;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.button4 button:active{
+    width: 78px;
+    height: 23px;
+    background: rgba(73, 73, 73, 0.5);
+    backdrop-filter: blur(0px);
+    color: rgb(212, 209, 253, 1);
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.calculator-input1 .container{
+    position: relative;
+    height: 150px;
+    width: 700px;
+    background: transparent;
+    top: 400px;
+    right: 0px;
+    border-radius: 40px;
+    backdrop-filter: blur(10px);
+    transform: translate(0px, -70px) scaleY(0);
+    opacity: 0;
+    transition: transform 500ms, opacity 1000ms;
+    pointer-events: none;
+}
+
+.calculator-body .calculator-input1 .container .accountsize-input{
+    position: absolute;
+    width: 100%;
+    top: 35px;
+}
+
+.calculator-body .calculator-input1 .container .accountsize-input .label{
+    position: absolute;
+    color: rgb(212, 209, 253);
+    font-size: 20px;
+    position: absolute;
+    top: -10px;
+    right: 380px;
+    z-index: 500;
+}   
+
+.calculator-body .calculator-input1 .container .accountsize-input .shadow{
+    position: absolute;
+    color: rgb(255, 115, 0);
+    font-size: 20px;
+    position: absolute;
+    top: -9px;
+    right: 379px;
+    z-index: 499;
+}
+
+.calculator-body .calculator-input1 .container .riskpercentage-input{
+    position: absolute;
+    width: 100%;
+    top: 80px;
+}
+
+.calculator-body .calculator-input1 .container .riskpercentage-input .label{
+    position: absolute;
+    color: rgb(212, 209, 253);
+    font-size: 20px;
+    position: absolute;
+    top: -10px;
+    right: 380px;
+    z-index: 500;
+}
+
+.calculator-body .calculator-input1 .container .riskpercentage-input .shadow{
+    position: absolute;
+    color: rgb(255, 115, 0);
+    font-size: 20px;
+    position: absolute;
+    top: -9px;
+    right: 379px;
+    z-index: 499;
+}
+
+.calculator-input1.active > input + .container{
+    position: relative;
+    opacity: 1;
+    transform: translate(0px, 0px) scaleY(1);
+    pointer-events: all;
+}
+
+.calculator-body .calculator-input1 .container .accountsize-input-button1 button{
+    background-color: rgb(255, 255, 255, 0.15);
+    position: absolute;
+    width: 76px;
+    height: 25px;
+    top: 82%;
+    left: 58%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    border: 2px solid rgb(212, 209, 253, 0.7);
+    font-weight: 600;
+    font-size: 12px;
+    transition: 50ms;
+}
+
+.calculator-body .calculator-input1 .container .accountsize-input-button1 button:hover{
+    width: 80px;
+    border-radius: 12.5px;
+    background-color: rgb(255, 255, 255, 0.3);
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.calculator-body .calculator-input1 .container .accountsize-input-button1 button:active{
+    width: 78px;
+    height: 23px;
+    background: rgba(73, 73, 73, 0.5);
+    color: rgb(212, 209, 253, 1);
+    font-size: 12px;
+}
+
+.calculator-body .calculator-input1 .container .accountsize-input-button2 button{
+    background-color: rgb(255, 255, 255, 0.15);
+    position: absolute;
+    width: 76px;
+    height: 25px;
+    top: 82%;
+    left: 72%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    border: 2px solid rgb(212, 209, 253, 0.7);
+    font-weight: 600;
+    font-size: 12px;
+    transition: 50ms;
+}
+
+.calculator-body .calculator-input1 .container .accountsize-input-button2 button:hover{
+    width: 80px;
+    border-radius: 12.5px;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.calculator-body .calculator-input1 .container .accountsize-input-button2 button:active{
+    width: 78px;
+    height: 23px;
+    background: rgba(73, 73, 73, 0.5);
+    color: rgb(212, 209, 253, 1);
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+.calculator-input2 .container{
+    position: relative;
+    height: 265px;
+    width: 700px;
+    background: transparent;
+    top: 350px;
+    right: 0px;
+    border-radius: 40px;
+    backdrop-filter: blur(10px);
+    transform: translate(0px, -120px) scaleY(0);
+    opacity: 0;
+    transition: transform 500ms, opacity 1000ms;
+    pointer-events: none;
+}
+
+.calculator-body .calculator-input2 .container .npips-input{
+    position: absolute;
+    width: 100%;
+    top: 30px;
+}
+
+.calculator-body .calculator-input2 .container .npips-input .label{
+    position: absolute;
+    color: rgb(212, 209, 253);
+    font-size: 20px;
+    position: absolute;
+    top: -10px;
+    right: 380px;
+    z-index: 500;
+}  
+
+.calculator-body .calculator-input2 .container .npips-input .shadow{
+    position: absolute;
+    color: rgb(255, 115, 0);
+    font-size: 20px;
+    position: absolute;
+    top: -9px;
+    right: 379px;
+    z-index: 499;
+}  
+
+.calculator-body .calculator-input2 .container .pip-value-input{
+    position: absolute;
+    width: 100%;
+    top: 75px;
+}
+
+.calculator-body .calculator-input2 .container .pip-value-input .label{
+    position: absolute;
+    color: rgb(212, 209, 253);
+    font-size: 20px;
+    position: absolute;
+    top: -10px;
+    right: 380px;
+    z-index: 500;
+}  
+
+.calculator-body .calculator-input2 .container .pip-value-input .shadow{
+    position: absolute;
+    color: rgb(255, 115, 0);
+    font-size: 20px;
+    position: absolute;
+    top: -9px;
+    right: 379px;
+    z-index: 499;
+}    
+
+.calculator-body .calculator-input2 .container .entryprice-input{
+    position: absolute;
+    width: 100%;
+    top: 150px;
+}
+
+.calculator-body .calculator-input2 .container .entryprice-input .label{
+    position: absolute;
+    color: rgb(212, 209, 253);
+    font-size: 20px;
+    position: absolute;
+    top: -10px;
+    right: 380px;
+    z-index: 500;
+}  
+
+.calculator-body .calculator-input2 .container .entryprice-input .shadow{
+    position: absolute;
+    color: rgb(255, 115, 0);
+    font-size: 20px;
+    position: absolute;
+    top: -9px;
+    right: 379px;
+    z-index: 499;
+} 
+
+.calculator-body .calculator-input2 .container .exitprice-input{
+    position: absolute;
+    width: 100%;
+    top: 195px;
+}
+
+.calculator-body .calculator-input2 .container .exitprice-input .label{
+    position: absolute;
+    color: rgb(212, 209, 253);
+    font-size: 20px;
+    position: absolute;
+    top: -10px;
+    right: 380px;
+    z-index: 500;
+}  
+
+.calculator-body .calculator-input2 .container .exitprice-input .shadow{
+    position: absolute;
+    color: rgb(255, 115, 0);
+    font-size: 20px;
+    position: absolute;
+    top: -9px;
+    right: 379px; 
+    z-index: 499;
+} 
+
+.calculator-input2.active > input + .container{
+    position: relative;
+    opacity: 1;
+    transform: translate(0px, 0px) scaleY(1);
+    pointer-events: all;
+}
+
+.calculator-body .calculator-input2 .container .pricevar-input-button1 button{
+    background-color: rgb(255, 255, 255, 0.15);
+    position: absolute;
+    width: 76px;
+    height: 25px;
+    top: 89.5%;
+    left: 58%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    border: 2px solid rgb(212, 209, 253, 0.7);
+    font-weight: 600;
+    font-size: 12px;
+    transition: 50ms;
+}
+
+.calculator-body .calculator-input2 .container .pricevar-input-button1 button:hover{
+    width: 80px;
+    border-radius: 12.5px;
+    background-color: rgb(255, 255, 255, 0.3);
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.calculator-body .calculator-input2 .container .pricevar-input-button1 button:active{
+    width: 78px;
+    height: 23px;
+    background: rgba(73, 73, 73, 0.5);
+    color: rgb(212, 209, 253, 1);
+    font-size: 12px;
+}
+
+.calculator-body .calculator-input2 .container .pricevar-input-button2 button{
+    background-color: rgb(255, 255, 255, 0.15);
+    position: absolute;
+    width: 76px;
+    height: 25px;
+    top: 89.5%;
+    left: 72%;
+    transform: translate(-50%,-50%);
+    border-radius:10px;
+    border: 2px solid rgb(212, 209, 253, 0.7);
+    font-weight: 600;
+    font-size: 12px;
+    transition: 50ms;
+}
+
+.calculator-body .calculator-input2 .container .pricevar-input-button2 button:hover{
+    width: 80px;
+    border-radius: 12.5px;
+    background-color: rgb(255, 255, 255, 0.3);
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.calculator-body .calculator-input2 .container .pricevar-input-button2 button:active{
+    width: 78px;
+    height: 23px;
+    background: rgba(73, 73, 73, 0.5);
+    color: rgb(212, 209, 253, 1);
+    font-size: 12px;
+}
+
+.calculator-body .calculator-input2 .p {
+    position: absolute;
+    left: 441px;
+    top: 87px;
+    color: rgb(212, 209, 253);
+    font-weight: bold;
+    z-index: 500;
+}
+
+.calculator-body .calculator-input2 .pshadow{
+    position: absolute;
+    left: 442px;
+    top: 89px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    z-index: 499;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.calculator-input3 .container{
+    position: relative;
+    height: 180px;
+    width: 700px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    top: 300px;
+    right: 0px;
+    border-radius: 40px;
+    transform: translate(0px, -80px) scaleY(0);
+    opacity: 0;
+    transition: transform 500ms, opacity 1000ms;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.calculator-body .calculator-input3 .container .entryPrice-input{
+    position: absolute;
+    width: 100%;
+    top: 60px;
+}
+
+.calculator-body .calculator-input3 .container .entryPrice-input .label{
+    position: absolute;
+    color: rgb(212, 209, 253);
+    font-size: 20px;
+    position: absolute;
+    top: -10px;
+    right: 380px;
+    z-index: 500;
+}  
+
+.calculator-body .calculator-input3 .container .entryPrice-input .shadow{
+    position: absolute;
+    color: rgb(255, 115, 0);
+    font-size: 20px;
+    position: absolute;
+    top: -9px;
+    right: 379px;
+    z-index: 499;
+} 
+
+.calculator-body .calculator-input3 .container .lotvalue-input{
+    position: absolute;
+    width: 100%;
+    top: 105px;
+}
+
+.calculator-body .calculator-input3 .container .lotvalue-input .label{
+    position: absolute;
+    color: rgb(212, 209, 253);
+    font-size: 20px;
+    position: absolute;
+    top: -10px;
+    right: 380px;
+    z-index: 500;
+}  
+
+.calculator-body .calculator-input3 .container .lotvalue-input .shadow{
+    position: absolute;
+    color: rgb(255, 115, 0);
+    font-size: 20px;
+    position: absolute;
+    top: -9px;
+    right: 379px;
+    z-index: 499;
+}
+
+.calculator-input3.active > input + .container{
+    position: relative;
+    opacity: 1;
+    transform: translate(0px, 0px) scaleY(1);
+    pointer-events: all;
+}
+
+.calculator-body .calculator-input3 .container .lotsize-input-button1 button{
+    background-color: rgb(255, 255, 255, 0.15);
+    position: absolute;
+    width: 76px;
+    height: 25px;
+    top: 151px;
+    left: 58%;
+    transform: translate(-50%,-50%);
+    border-radius:10px;
+    border: 2px solid rgb(212, 209, 253, 0.7);
+    font-weight: 600;
+    font-size: 12px;
+    transition: 50ms;
+}
+
+.calculator-body .calculator-input3 .container .lotsize-input-button1 button:hover{
+    width: 80px;
+    border-radius: 12.5px;
+    background-color: rgb(255, 255, 255, 0.3);
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.calculator-body .calculator-input3 .container .lotsize-input-button1 button:active{
+    width: 78px;
+    height: 23px;
+    background: rgba(73, 73, 73, 0.5);
+    color: rgb(212, 209, 253, 1);
+    font-size: 12px;
+}
+
+.calculator-body .calculator-input3 .container .lotsize-input-button2 button{
+    background-color: rgb(255, 255, 255, 0.15);
+    position: absolute;
+    width: 76px;
+    height: 25px;
+    top: 151px;
+    left: 72%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    border: 2px solid rgb(212, 209, 253, 0.7);
+    font-weight: 600;
+    font-size: 12px;
+    transition: 50ms;
+}
+
+.calculator-body .calculator-input3 .container .lotsize-input-button2 button:hover{
+    width: 80px;
+    border-radius: 12.5px;
+    background-color: rgb(255, 255, 255, 0.3);
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.calculator-body .calculator-input3 .container .lotsize-input-button2 button:active{
+    width: 78px;
+    height: 23px;
+    background: rgba(73, 73, 73, 0.5);
+    color: rgb(212, 209, 253, 1);
+    font-size: 12px;
+}
+
+.calculator-body .calculator-input3 .container .info-button{
+    background: transparent;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 17px;
+    left: 92%;
+    border-radius: 5px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%,-50%);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder;
+    font-style: italic;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+.calculator-body .calculator-input3 .container .info-button:hover{
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.325);
+    cursor: pointer;
+}
+
+.calculator-body .calculator-input3 .container .info-button:active{
+    background: rgba(0, 0, 0, 0.275);
+    font-size: 12px;
+    color: rgb(212, 209, 253);
+    border: 1px solid rgb(212, 209, 253), 0.3;
+}
+
+.calculator-body .calculator-input3 .container h3{
+    position: absolute;
+    height: 20px;
+    margin: 0px;
+    padding: 5px;
+    top: 0px;
+    left: 60px;
+    color: rgba(255, 0, 0, 0.85);
+    font-size: 19px;
+    font-weight: 900;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.calculator-body .calculator-input3 .container h4{
+    position: absolute;
+    height: 20px;
+    margin: 0px;
+    padding: 5px;
+    top: 4px;
+    right: 90px;
+    color: rgba(255, 0, 0, 1);
+    font-size: 14px;
+    text-decoration: underline;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.calculator-body .calculator-input3 .container h5{
+    position: absolute;
+    height: 20px;
+    margin: 0px;
+    padding: 5px;
+    top: 1px;
+    left: 61px;
+    color: black;
+    font-weight: 900;
+    z-index: 99;
+    font-size: 19px;
+    pointer-events: none;
+}
+
+.calculator-body .calculator-input3 .container h6{
+    position: absolute;
+    height: 20px;
+    margin: 0px;
+    padding: 5px;
+    top: 5px;
+    right: 89px;
+    color: black;
+    font-size: 14px;
+    text-decoration: underline;
+    z-index: 99;
+    pointer-events: none;
+}
+
+.calculator-input3 .container .info-size .text{
+    margin-left: 45px;
+    margin-right: 45px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: 400;    
+    color: rgb(212, 209, 253);
+    text-decoration: solid;
+    position: absolute;
+    bottom: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.calculator-input3 .container.active{
+    height: 257px;
+}
+
+.calculator-input3 .container.active .info-size .text{
+    opacity: 1;
+    transition: 300ms;
+}
+
+.calculator-body h1{
+    font-size: 10px;
+    text-align: center;
+    position: absolute;
+    top: 90%;
+    right: 25%;
+    pointer-events: none;
+}
+
+.calculator-body h2{
+    font-size: 10px;
+    text-align: center;
+    position: absolute;
+    top: 93%;
+    right: 45%;
+    pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*<div class="label">
+                <label>Risk per Trade:</label>  
+            </div>
+            <div class="shadow">
+                <label>Risk per Trade:</label> 
+            </div>
+
+
+background: rgba(255, 255, 255, 0.075);
+
+

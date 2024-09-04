@@ -158,6 +158,9 @@ document.addEventListener("click", e => {
             document.querySelector('.active')?.classList.remove('active');
             document.querySelector("div.calculator-body div[class='tittle']").classList.toggle('active');
             active5 = 1; 
+            active1 = 0;
+            active2 = 0;
+            active3 = 0;
             return;
         }
     }
